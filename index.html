@@ -27,7 +27,7 @@
         </div>
         <h1 class="profile__name">Ксения</h1>
         <p class="profile__role">Веб-дизайнер сайтов</p>
-        <p class="status"><span class="status__dot"></span>Стартовые цены для первых клиентов</p>
+        <p class="status"><span class="status__dot"></span>Набираю первых клиентов</p>
 
         <ul class="profile__facts">
           <li><span>Формат</span>Онлайн, по всей России</li>
@@ -144,17 +144,19 @@
   </div>
 
   <script>
-    // Контакты: впишите свои данные — пустые строки не показываются
+    // Контакты: пустые строки не показываются
     const CONTACTS = [
+      { label: 'Написать в Телеграм', url: 'https://t.me/grrshmn' },
+      { label: 'WhatsApp', url: 'https://wa.me/79381045215' },
       { label: 'Инстаграм', url: '' },          // например: https://instagram.com/ksenia.webdesign
-      { label: 'Телеграм', url: '' },           // например: https://t.me/ksenia_sites
-      { label: 'Почта', url: '' },              // например: mailto:hello@example.com
+      { label: 'Почта', url: 'mailto:vainberg.ksu@mail.ru' },
     ];
+    const PHONE = { text: '+7 938 104-52-15', url: 'tel:+79381045215', note: 'WhatsApp и MAX' };
 
     const filled = CONTACTS.filter((c) => c.url);
     const html = filled.map((c, i) =>
       `<a class="btn ${i === 0 ? 'btn--primary' : 'btn--ghost'}" href="${c.url}" target="_blank" rel="noopener">${c.label}</a>`
-    ).join('');
+    ).join('') + `<a class="phone" href="${PHONE.url}">${PHONE.text}<small>${PHONE.note}</small></a>`;
     document.getElementById('contacts').innerHTML = html;
     document.getElementById('contactsBig').innerHTML = html;
     document.getElementById('year').textContent = new Date().getFullYear();
